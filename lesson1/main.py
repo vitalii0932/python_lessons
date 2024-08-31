@@ -1,3 +1,4 @@
+"""
 # task 1
 print('Hello', ' world', sep = ',', end = '!')
 print('\n==========================================')
@@ -43,3 +44,7 @@ print('\n==========================================') # separator
 pet = input('Input your pet\'s name: ')
 print(pet, 'is a wonderful name!')
 print('\n==========================================') # separator
+"""
+
+for i in range(100):
+	print('You are the best friend')
