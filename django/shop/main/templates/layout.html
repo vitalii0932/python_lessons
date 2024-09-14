@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Drugs</title>
+		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<img class="background-image-1" src="{% static 'assets/images/background_img.png' %}" />
+		<img class="background-image-2" src="{% static 'assets/images/background_img.png' %}" />
+
+		<header>
+			<div class="favicon"><i class="fa-brands fa-envira"></i> Drugs</div>
+
+			<div class="header_cart" onclick="openModal()">
+				<i class="fa-solid fa-cart-shopping"></i>
+			</div>
+		</header>
+
+		{% block content %}
+		{% endblock %}
+
+		<footer>
+			<p class="copyright">
+				© 2024
+				<span class="site-name"><i class="fa-brands fa-envira"></i> Drugs </span
+				>. All rights reserved. <br />
+				Made with <span class="heart">&#10084;</span> and a pinch of humor.
+				<br />
+				If you find a bug, please report it to our
+				<a href="mailto:funnybugs@yourfunnysite.com">bug squad</a>.
+			</p>
+		</footer>
+
+		<script src="{% static 'assets/js/index.js' %}"></script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'layout.html' %} {% block content %}
+<div id="cartModal" class="modal">
+	<div class="modal-content">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<h2>Your Cart</h2>
+		<div class="cart-items">
+			<!-- Example items -->
+			<div class="cart-item">
+				<p>Item 1</p>
+				<p>1000</p>
+			</div>
+			<div class="cart-item">
+				<p>Item 2</p>
+				<p>1500</p>
+			</div>
+			<!-- Add more items as needed -->
+		</div>
+		<button class="checkout-btn">Checkout</button>
+	</div>
+</div>
+
+<div class="content">
+	<div class="slider">
+		<div class="slides">
+			<div class="slide">
+				<img src="https://placehold.co/1200x400/B8D6B0/white" alt="Image 1" />
+			</div>
+			<div class="slide">
+				<img src="https://placehold.co/1200x400/79B669/white" alt="Image 2" />
+			</div>
+			<div class="slide">
+				<img src="https://placehold.co/1200x400/1F8505/white" alt="Image 3" />
+			</div>
+		</div>
+	</div>
+
+	<div class="products">
+		{% for drug in drugs %}
+			<div class="product">
+				<div class="product_img">
+					<img src="{{ drug.image.url }}" alt="Image" />
+				</div>
+				<div class="product_desc">
+					<div class="product_name">{{ drug.name }}</div>
+					<div class="buy_product">
+						<div class="product_price">{{ drug.price }}</div>
+						<button class="buy_btn">
+							<i class="fa-solid fa-cart-plus"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
