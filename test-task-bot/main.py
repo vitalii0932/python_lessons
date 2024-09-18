@@ -1,45 +1,35 @@
 import telebot
 import random
 
-bot = telebot.TeleBot('token')
+BOT_API_TOKEN = '7422631432:AAFBO8gi_svzIS6Sii_J1QNAv8Ba2hVFWKc'
 
-random_number = random.randint(1, 10)
+bot = telebot.TeleBot(BOT_API_TOKEN)
+
+random_number = random.randint(1, 1000)
 
 
 @bot.message_handler(commands=['start'])
 def start(message):
-	bot.send_message(message.chat.id, 'Привіт! Я загадав число від 1 до 10. Спробуй його вгадати!')
-     
-
-@bot.message_handler(commands=['end'])
-def end(message):
-    global random_number 
-    
-    bot.send_message(message.chat.id, f'Нажаль ви програли. Числом було {random_number}')
-
-    random_number = random.randint(1, 10)
+	bot.send_message(message.chat.id, 'Привіт! Я загадав число від 1 до 1000. Спробуй відгадати! =)')
 
 
 @bot.message_handler(func=lambda message: True)
 def guess_function(message):
-    global random_number 
+    global random_number
 
     try:
-        user_guess = int(message.text)
+        number = int(message.text)
 
-        if 0 <= user_guess <= 10:
-            if user_guess == random_number:
-                bot.send_message(message.chat.id, f'Вітаю! Ви вгадали число {random_number}')
-                random_number = random.randint(1, 10)
-            elif user_guess < random_number:
-                bot.send_message(message.chat.id, 'Ваше число замале')
-            else:
-                bot.send_message(message.chat.id, 'Ваше число завелике') 
+        if number == random_number:
+            bot.send_message(message.chat.id, 'Вітаю! Ти відгадав число!')
+            random_number = random.randint(1, 1000)
+        elif number > random_number:
+            bot.send_message(message.chat.id, 'Спробуй менше число!')
         else:
-            bot.send_message(message.chat.id, 'Будьте уважні. Ваше число має бути в межах від 1 до 10') 
+            bot.send_message(message.chat.id, 'Спробуй більше число!')
     except ValueError:
-        bot.send_message(message.chat.id, 'Ви ввели не число')
+        bot.send_message(message.chat.id, 'Введіть число!')
 
 
 if __name__ == '__main__':
-	bot.polling(none_stop=True)
+    bot.polling(none_stop=True)
