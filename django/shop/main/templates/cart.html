@@ -1,0 +1,63 @@
+{% extends 'layout.html' %} 
+{% block content %}
+<div class="content">
+	<h1>Shopping Cart</h1>
+    <div class="cart-container">
+        <table class="cart_table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+					<th>Product image</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+				{% for item in cart_items %}
+                <tr>
+                    <td>{{ item.drug.name }}</td>
+					<td><img src="{{ item.drug.image.url }}" alt="image"></td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.drug.price }}</td>
+                    <td>{{ item.total_price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Total</td>
+                    <td>{{ cart.total_price }}</td>
+                </tr>
+            </tfoot>
+        </table>
+        <aside class="order_summary">
+            <h2>Order Summary</h2>
+            <p>Subtotal: {{ cart.total_price }}</p>
+            <p>Tax: 500</p>
+            <p>Shipping: 100</p>
+            <p style="margin-bottom: 40px"><strong>Total: {{ cart.total_price|add:500|add:100 }}</strong></p>
+
+			<h2>Checkout</h2>
+			<form class="checkout-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="zip">Post Code:</label>
+                <input type="text" id="zip" name="zip" required>
+
+                <label for="card">Credit Card:</label>
+                <input type="text" id="card" name="card" required>
+
+                <button type="submit">Proceed to Checkout</button>
+            </form>
+        </aside>
+    </div>
+</div>
+{% endblock %}

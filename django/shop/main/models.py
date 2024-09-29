@@ -76,3 +76,28 @@ class Drugs(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукти'
+
+
+class Cart(models.Model):
+    session_id = models.CharField(max_length=255)  # This will hold the session ID
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Cart {self.id} (Session: {self.session_id})"
+
+    @property
+    def total_price(self):
+        return sum(item.total_price for item in self.cartitem_set.all())
+
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    drug = models.ForeignKey(Drugs, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    @property
+    def total_price(self):
+        return self.quantity * self.drug.price
+
+    def __str__(self):
+        return f"{self.quantity} of {self.drug.name}"

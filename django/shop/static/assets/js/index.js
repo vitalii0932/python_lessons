@@ -42,3 +42,28 @@ window.onclick = function (event) {
 		closeModal();
 	}
 };
+
+document.addEventListener("DOMContentLoaded", function() {
+	const buttons = document.querySelectorAll(".buy_btn");
+	
+	buttons.forEach(button => {
+		button.addEventListener("click", function(event) {
+			const drugId = this.dataset.drugId;
+			
+			// Send AJAX request to add item to cart
+			fetch(`/add-to-cart/${drugId}/`, {
+				method: 'GET',
+				headers: {
+					'X-Requested-With': 'XMLHttpRequest',
+				},
+			})
+			.then(response => response.json())
+			.then(data => {
+				alert(data.message); // Notify the user
+			})
+			.catch(error => {
+				console.error("Error adding to cart:", error);
+			});
+		});
+	});
+});

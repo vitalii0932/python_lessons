@@ -16,11 +16,11 @@
 		<img class="background-image-2" src="{% static 'assets/images/background_img.png' %}" />
 
 		<header>
-			<div class="favicon"><i class="fa-brands fa-envira"></i> Drugs</div>
+			<a class="favicon" href="{% url 'drugs' %}"><i class="fa-brands fa-envira"></i> Drugs</a>
 
-			<div class="header_cart" onclick="openModal()">
+			<a class="header_cart" href="{% url 'cart' %}">
 				<i class="fa-solid fa-cart-shopping"></i>
-			</div>
+			</a>
 		</header>
 
 		{% block content %}

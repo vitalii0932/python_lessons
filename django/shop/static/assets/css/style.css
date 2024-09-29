@@ -266,6 +266,112 @@ a:hover {
 	background-color: #1c630a;
 }
 
+h1 {
+	margin-top: 100px;
+	margin-bottom: 70px;
+	font-size: 50px;
+	text-align: center;	
+	color: #155a03;
+}
+
+.cart-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cart_table {
+	width: 55%;
+	border-collapse: collapse;
+	margin: 20px 0;
+	font-size: 30px;
+	color: #000;
+	text-align: left;
+}
+
+.cart_table th, .cart_table td {
+	padding: 12px;
+	border: 1px solid #ddd;
+}
+
+.cart_table th img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover; 
+}
+
+.cart_table th {
+	background-color: #f2f2f2;
+}
+
+.cart_table tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+.cart_table tfoot td {
+	font-weight: bold;
+}
+
+.order_summary {
+	width: 40%;
+	padding: 20px;
+	border: 1px solid #ddd;
+	background-color: #f9f9f9;
+	color: #000;
+	font-size: 30px;
+}
+
+.order_summary h2 {
+	margin-top: 0;
+}
+
+.order_summary p {
+	margin: 10px 0;
+}
+
+.checkout-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.checkout-form label {
+	margin-top: 10px;
+}
+
+.checkout-form input {
+	padding: 8px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.checkout-form button {
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+
+.checkout-form button:hover {
+	background-color: #45a049;
+}
+
+.order_summary button {
+	width: 100%;
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	font-size: 35px;
+	border-radius: 15px;
+}
+
+.order_summary button:hover {
+	background-color: #45a049;
+}
+
 @media (max-width: 768px) {
 	.background-image-1,
 	.background-image-2 {

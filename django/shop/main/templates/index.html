@@ -1,23 +1,4 @@
 {% extends 'layout.html' %} {% block content %}
-<div id="cartModal" class="modal">
-	<div class="modal-content">
-		<span class="close" onclick="closeModal()">&times;</span>
-		<h2>Your Cart</h2>
-		<div class="cart-items">
-			<!-- Example items -->
-			<div class="cart-item">
-				<p>Item 1</p>
-				<p>1000</p>
-			</div>
-			<div class="cart-item">
-				<p>Item 2</p>
-				<p>1500</p>
-			</div>
-			<!-- Add more items as needed -->
-		</div>
-		<button class="checkout-btn">Checkout</button>
-	</div>
-</div>
 
 <div class="content">
 	<div class="slider">
@@ -44,7 +25,7 @@
 					<div class="product_name">{{ drug.name }}</div>
 					<div class="buy_product">
 						<div class="product_price">{{ drug.price }}</div>
-						<button class="buy_btn">
+						<button class="buy_btn" data-drug-id="{{ drug.id }}">
 							<i class="fa-solid fa-cart-plus"></i>
 						</button>
 					</div>
