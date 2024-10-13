@@ -1,6 +1,77 @@
-import os
+to_do_list = []
+
+while True:
+	new_task = input('> (q to stop) ')
+
+	"""
+	LOWER CASE: abcd
+	UPPER CASE: ABCD
+
+	some_string = 'aBcD'
+	some_string.lower() -> 'abcd'
+	"""
+
+	if new_task.lower() == 'q':
+		break
+
+	to_do_list.append(new_task)
+
+
+while True:
+	print('0. Show tasks')
+	print('1. Add task to list')
+	print('2. Remove task from list')
+	print('3. Sort tasks')
+	print('q. Shut down the program')
+
+	operation = input('Select the operation: ')
+
+	if operation == '0':
+		for i in range(len(to_do_list)):
+			print(f'{i}. {to_do_list[i]}')
+	elif operation == '1':
+		operation = input('Input new task: ')
+		to_do_list.append(operation)
+	elif operation == '2':
+		operation = input('Input operation to remove: ')
+
+		if not operation in to_do_list:
+			print('Task not found')
+			continue
+
+		to_do_list.append(operation)
+		
+
+		to_do_list.remove(operation)
+	elif operation == '3':
+		to_do_list.sort()
+		print('List was sorted')
+	elif operation == 'q':
+		print('Goodbye!')
+		break
+	else:
+		print('Incorrect operation')
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 """
+import os
+
+
 # home task 2
 list = ['Анастасія Юріївна', 'Аліна Юріївна', 'Анастасія Михайлівна']
 
@@ -35,7 +106,7 @@ for item in list1:
 		list2.append(item)
 
 print('Другий список: \n', list2)
-"""
+
 
 # task 2
 to_do_list = []
@@ -78,6 +149,6 @@ while True:
 			print('Incorrect operation')
 	except Exception:
 		print('500')
-
+"""
 	
 

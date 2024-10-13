@@ -1,4 +1,100 @@
 """
+list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'a']
+
+print(list)
+
+list.append('k')
+list.append('l')
+list.append('m')
+list.append('n')
+
+print(list)
+
+list.remove('a')
+list.remove('a')
+
+print(list)
+
+char = list.pop(0)
+print(char)
+print(list)
+
+del list[0]
+del list[-1]
+print(list)
+
+new_list = [1, 2, 3, 4, 5]
+
+list.extend(new_list)
+
+print(list)
+
+list.insert(1, 'Hello Tima!')
+print(list)
+
+print(list.index('Hello Tima!'))
+
+import random
+
+list = [random.randint(1, 1000) for i in range(10)]
+
+print(list)
+
+list.sort(reverse=True)
+
+print(list)
+
+list.reverse()
+
+print(list)
+
+list = [1, 2, 3, 4, 5]
+list2 = list.copy()
+list2[0] = 100
+print(list)
+print(list2)
+"""
+
+
+
+products = ['apple', 'banana', 'orange', 'kiwi', 'mango']
+sale_history = []
+
+while True:
+	print('1. Show all products')
+	print('2. Add product')
+	print('3. Sell product')
+	print('q. Exit')
+
+	operation = input('Enter operation number: ')
+
+	if operation == '1':
+		print('All products:')
+		for product in products:
+			print(f' - {product}')
+	elif operation == '2':
+		# TODO: add product
+	elif operation == '3':
+		product = input('Enter product name: ')
+
+		if product in products:
+			products.remove(product)
+			print(f'You have successfully sold {product}')
+
+			sale_history.append(product)
+		else:
+			print(f'Product {product} not found')
+	elif operation == 'q':
+		print('Goodbye')
+		break
+	else:
+		print('Unknown operation')
+	
+
+
+
+
+"""
 list1 = ['a', 'b', 'b', 'c', 'c']
 print(list1)
 
@@ -65,7 +161,7 @@ if 10 in list2:
 	print('+')
 else:
 	print('-')
-"""
+
 
 # task 1
 products = ['a', 'b', 'c', 'a', 'b', 'c']
@@ -120,3 +216,4 @@ while True:
 			print('Невідома операція')
 	except ValueError:
 		print('Ви ввели не коректну операцію')
+"""

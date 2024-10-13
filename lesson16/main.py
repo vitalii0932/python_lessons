@@ -44,8 +44,14 @@ def factorial(n):
 		return 1
 	return n * factorial(n - 1)
 
+def is_palindrome(word: list) -> bool:
+	return word == word[::-1]
+	
+
+
 
 if __name__ == '__main__':
+	'''
 	names = ['Alice', 'Bob', 'Charlie']
 	for name in names:
 		say_hello(name)
@@ -64,3 +70,9 @@ if __name__ == '__main__':
 	print(circle_area(6))
 
 	test_args_kwargs(1, 2, 3, 10, 'hi', a = 4, b = 5, c = 6, d = 'hello')
+	'''
+
+	worlds = ['hello', 'abc', 'abcba', 'level', 'radar', 'word', 'deified', 'abccba']
+	for word in worlds:
+		is_word_palindrome = is_palindrome(word)
+		print(f'{word} is palindrome: {is_word_palindrome}')
